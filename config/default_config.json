@@ -1,0 +1,34 @@
+{
+  "train": {
+    "data_dir": "data/soft",
+    "cond_dirs": [
+      "data/normal"
+    ],
+    "cond_sampling": "random",
+    "augment": false,
+    "grayscale": true,
+    "out_dir": "output/checkpoints",
+    "image_size": 256,
+    "batch_size": 16,
+    "epochs": 800,
+    "lr": 5e-5,
+    "timesteps": 1000,
+    "base_channels": 64,
+    "cond_dim": 256,
+    "depth": 5,
+    "log_interval": 50,
+    "save_interval": 1000
+  },
+  "infer": {
+    "checkpoint": "output/checkpoints/unet2d_step30400.pt",
+    "cond_image": "data/normal/P100_613_s190_Arabesque_c_tmp_5_c_vol_20_vol_0_tmp_1_20_256.png",
+    "out_dir": "output/samples",
+    "num_samples": 4,
+    "image_size": 256,
+    "timesteps": 1000,
+    "base_channels": 64,
+    "cond_dim": 256,
+    "depth": 5,
+    "grayscale": true
+  }
+}
