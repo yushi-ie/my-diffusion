@@ -18,7 +18,7 @@ def sinusoidal_embedding(x: torch.Tensor, dim: int = 256) -> torch.Tensor:
     freq = torch.exp(
         torch.arange(half, device=x.device, dtype=x.dtype) * (-math.log(10000.0) / max(half - 1, 1))
     )
-    angles = x.unsqueeze(1) * freq.unsqueeze(0)
+    angles = x.unsqueeze(1) * freq.unsqueeze(0)#unsqueezeでx1次元を追加
     emb = torch.cat([torch.sin(angles), torch.cos(angles)], dim=1)
     if dim % 2 == 1:
         emb = torch.cat([emb, torch.zeros_like(emb[:, :1])], dim=1)

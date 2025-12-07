@@ -12,9 +12,9 @@ class ConditioningEncoder(nn.Module):
     def __init__(self, cond_dim: int = 256, hidden: int = 128):
         super().__init__()
         self.encoder = nn.Sequential(
-            nn.Conv2d(3, hidden, 5, stride=2, padding=2),
-            nn.GroupNorm(8, hidden),
-            nn.SiLU(),
+            nn.Conv2d(3, hidden, 5, stride=2, padding=2),#conv(入力、出力、カーネルサイズ、ストライド、パディング)
+            nn.GroupNorm(8, hidden),#正規化(グループ数、チャネル数)
+            nn.SiLU(),#シグモイド関数
             nn.Conv2d(hidden, hidden * 2, 3, stride=2, padding=1),
             nn.GroupNorm(8, hidden * 2),
             nn.SiLU(),
@@ -22,7 +22,7 @@ class ConditioningEncoder(nn.Module):
             nn.GroupNorm(8, hidden * 4),
             nn.SiLU(),
         )
-        self.proj = nn.Sequential(
+        self.proj = nn.Sequential(#全結合ブロック
             nn.Linear(hidden * 4, cond_dim),
             nn.SiLU(),
             nn.Linear(cond_dim, cond_dim),
