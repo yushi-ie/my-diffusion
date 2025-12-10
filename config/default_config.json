@@ -20,8 +20,11 @@
     "save_interval": 1000
   },
   "infer": {
-    "checkpoint": "output/checkpoints/unet2d_step38000.pt",
+    "checkpoint": "output/checkpoints/unet2d_step10000.pt",
     "cond_image": "data/normal/P100_613_s190_Arabesque_c_tmp_5_c_vol_20_vol_0_tmp_1_20_256.png",
+    "source_image": "data/soft/P0_1226_s0_Arabesque_c_tmp_5_c_vol_5_vol_0_tmp_1_0_256.png",
+    "start_step": 500,
+    "pure_noise": false,
     "out_dir": "output/samples",
     "num_samples": 6,
     "image_size": 256,
